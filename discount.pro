@@ -7,7 +7,7 @@
 QT       -= core gui
 
 TARGET = discount
-TEMPLATE = lib
+TEMPLATE = staticlib
 DEF_FILE = discount.def
 
 # compile output is unreadable with -Wall

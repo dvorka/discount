@@ -11,4 +11,5 @@ librarian.sh
 mkdio.h
 version.c
 *.o
+*.a
 libdiscount.so*
