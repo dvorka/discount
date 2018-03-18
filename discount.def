@@ -1,0 +1,7 @@
+LIBRARY DISCOUNT
+EXPORTS
+    mkd_compile
+    mkd_document
+    mkd_toc
+    mkd_cleanup
+    mkd_string
