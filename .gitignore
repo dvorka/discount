@@ -10,3 +10,5 @@ libmarkdown.pc
 librarian.sh
 mkdio.h
 version.c
+*.o
+libdiscount.so*

@@ -73,6 +73,15 @@ AC_PROG_CC
 AC_QUIET AC_PROG git && AC_DEFINE 'HAS_GIT' '1'
 AC_CHECK_NORETURN
 
+
+
+# martin.dvorak@mindforger.com stupid and ugly hack to get in version and branch
+# IMPORTANT: update version and branch (./VERSION ./branch) on Git submodule update
+AC_DEFINE 'VERSION' '"2.2.4b1"'
+AC_DEFINE 'BRANCH' '"master"'
+
+
+
 test "$TRY_SHARED" && AC_COMPILER_PIC && AC_CC_SHLIBS
 
 if [ "IS_BROKEN_CC" ]; then

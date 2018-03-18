@@ -26,7 +26,6 @@
 #  THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-
 #
 # this preamble code is executed when this file is sourced and it picks
 # interesting things off the command line.
@@ -41,7 +40,6 @@ ac_standard="--src=DIR		where the source lives (.)
 --libdir=DIR		where to put libraries (prefix/lib)
 --libexecdir=DIR	where to put private executables
 --mandir=DIR		where to put manpages"
-
 
 # remove files created by configure on abend
 #
@@ -1944,4 +1942,3 @@ while [ $# -gt 0 ]; do
 	fi ;;
     esac
 done
-
