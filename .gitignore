@@ -1,1 +1,12 @@
 Makefile
+config.cmd
+config.h
+config.log
+config.mak
+config.md
+config.sed
+config.sub
+libmarkdown.pc
+librarian.sh
+mkdio.h
+version.c
