@@ -7,11 +7,12 @@
 QT       -= core gui
 
 TARGET = discount
-TEMPLATE = staticlib
-DEF_FILE = discount.def
-
+TEMPLATE = lib
+CONFIG += staticlib
 # compile output is unreadable with -Wall
 CONFIG += warn_off
+
+DEF_FILE = discount.def
 
 SOURCES += \
     mkdio.c \
