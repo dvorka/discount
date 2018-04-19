@@ -1717,6 +1717,32 @@ printhtml(Line *t, MMIOT *f)
 	    blanks++;
 }
 
+listcontent(Paragraph *p, int flags, MMIOT *f)
+{
+    ___mkd_emblock(f);
+
+    Qprintf(f, "<li");
+       //if ( flags & GITHUB_CHECK )
+           Qprintf(f, " class=\"github_checkbox\"");
+       Qprintf(f, ">");
+       //if ( flags & GITHUB_CHECK ) {
+           Qprintf(f, "<input type=\"checkbox\"");
+           //if ( flags & IS_CHECKED )
+               Qprintf(f, " checked=\"checked\"");
+           Qprintf(f, "/>");
+       //}
+
+    ___mkd_emblock(f);
+
+    while (( p = display(p, f) )) {
+       ___mkd_emblock(f);
+       Qstring("\n", f);
+    }
+
+     Qprintf(f, "</li>");
+    ___mkd_emblock(f);
+}
+
 
 static void
 htmlify(Paragraph *p, char *block, char *arguments, MMIOT *f)
@@ -1771,7 +1797,8 @@ listdisplay(int typ, Paragraph *p, MMIOT* f)
 	Qprintf(f, ">\n");
 
 	for ( ; p ; p = p->next ) {
-	    htmlify(p->down, "li", p->ident, f);
+        //htmlify(p->down, "li", p->ident, f);
+        listcontent(p->down, p->flags, f);
 	    Qchar('\n', f);
 	}
 

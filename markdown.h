@@ -41,6 +41,10 @@ typedef struct paragraph {
 	   HDR, HR, TABLE, SOURCE } typ;
     enum { IMPLICIT=0, PARA, CENTER} align;
     int hnumber;		/* <Hn> for typ == HDR */
+
+    int flags;
+    #define GITHUB_CHECK           0x01
+    #define IS_CHECKED             0x02
 } Paragraph;
 
 enum { ETX, SETEXT };	/* header types */

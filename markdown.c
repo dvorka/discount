@@ -851,14 +851,37 @@ listitem(Paragraph *p, int indent, DWORD flags, linefn check)
     Line *t, *q;
     int clip = indent;
     int z;
+    int firstpara = 1;
+    int ischeck;
+    #define CHECK_NOT 0
+    #define CHECK_NO 1
+    #define CHECK_YES 2
 
     for ( t = p->text; t ; t = q) {
 	UNCHECK(t);
 	__mkd_trim_line(t, clip);
 
-        /* even though we had to trim a long leader off this item,
-         * the indent for trailing paragraphs is still 4...
-	 */
+
+    if ( firstpara ) {
+        ischeck = CHECK_NOT;
+        if ( strncasecmp(T(t->text)+t->dle, "[ ]", 3) == 0 )
+            ischeck = CHECK_NO;
+        else if ( strncmp(T(t->text)+t->dle, "[x]", 3) == 0 )
+            ischeck = CHECK_YES;
+
+        if ( ischeck != CHECK_NOT ) {
+            __mkd_trim_line(t, 3);
+            p->flags |= GITHUB_CHECK;
+            if ( ischeck == CHECK_YES )
+                p->flags |= IS_CHECKED;
+        }
+        firstpara = 0;
+    }
+
+
+    /* even though we had to trim a long leader off this item,
+     * the indent for trailing paragraphs is still 4...
+     */
 	if (indent > 4) {
 	    indent = 4;
 	}
