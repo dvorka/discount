@@ -1722,15 +1722,15 @@ listcontent(Paragraph *p, int flags, MMIOT *f)
     ___mkd_emblock(f);
 
     Qprintf(f, "<li");
-       //if ( flags & GITHUB_CHECK )
+       if ( flags & GITHUB_CHECK )
            Qprintf(f, " class=\"github_checkbox\"");
        Qprintf(f, ">");
-       //if ( flags & GITHUB_CHECK ) {
+       if ( flags & GITHUB_CHECK ) {
            Qprintf(f, "<input type=\"checkbox\"");
-           //if ( flags & IS_CHECKED )
+           if ( flags & IS_CHECKED )
                Qprintf(f, " checked=\"checked\"");
-           Qprintf(f, "/>");
-       //}
+           Qprintf(f, "disabled/>");
+       }
 
     ___mkd_emblock(f);
 
