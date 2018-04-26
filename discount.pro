@@ -4,6 +4,7 @@
 # Github : https://github.com/Orc/discount
 # Webpage: http://www.pell.portland.or.us/~orc/Code/discount/
 #
+
 QT       -= core gui
 
 TARGET = discount
