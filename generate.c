@@ -1729,7 +1729,7 @@ listcontent(Paragraph *p, int flags, MMIOT *f)
            Qprintf(f, "<input type=\"checkbox\"");
            if ( flags & IS_CHECKED )
                Qprintf(f, " checked=\"checked\"");
-           Qprintf(f, "disabled/>");
+           Qprintf(f, " disabled/>");
        }
 
     ___mkd_emblock(f);
