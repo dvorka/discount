@@ -1,3 +1,5 @@
+*.dSYM
+mktags
 Makefile
 config.cmd
 config.h
